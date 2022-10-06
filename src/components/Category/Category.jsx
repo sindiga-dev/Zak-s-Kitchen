@@ -35,6 +35,29 @@ class Category extends Component{
     else
         return "";
 }
-
+renderCategoryList(context) {
+    const { classes } = this.props;
+    let { categories } = context;
+    return (
+        <div className="category-container">
+            <List dense className={classes.root}>
+                {categories.map(category => (
+                    <ListItem className="category-list-container" key={category.idCategory} button onClick={() => context.handleCategoryClick(category.strCategory)}>
+                        <ListItemAvatar className={this.selectedCategoryClassName(category.strCategory, context.selectedCategoryName)}>
+                            <Avatar alt="" src={category.strCategoryThumb} />
+                        </ListItemAvatar>
+                        <ListItemText className="category-name" primary={category.strCategory} />
+                        <ListItemSecondaryAction className="category-checkbox">
+                            <Checkbox classes={{
+                                root:classes.checkbox,
+                                checked:classes.checked
+                            }} onChange={() => context.handleCategoryClick(category.strCategory)} checked={this.isChecked(category.strCategory, context.selectedCategoryName)} />
+                        </ListItemSecondaryAction>
+                    </ListItem>
+                ))}
+            </List>
+        </div>
+    );
+}
 
 }
