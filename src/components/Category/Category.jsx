@@ -60,4 +60,19 @@ renderCategoryList(context) {
     );
 }
 
+
+render() {
+    return (
+        <React.Fragment>
+            <MealContext.Consumer>
+                {(context) => (
+                    this.renderCategoryList(context)
+                )}
+            </MealContext.Consumer>
+
+        </React.Fragment>
+    )
 }
+}
+
+export default withStyles(styles)(Category);
