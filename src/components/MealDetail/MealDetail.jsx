@@ -29,4 +29,23 @@ export default class MealDetail extends Component {
             console.log(err);
         }
     }
+    render() {
+        let { mealDetail } = this.state;
+        mealDetail = mealDetail[0];
+        if (mealDetail) {
+          return (
+            <div className="meal-detail-container">
+              <div className="meal-header">{mealDetail.strMeal}</div>
+              <div className="meal-img-container">
+                <img src={mealDetail.strMealThumb} alt="" />
+              </div>
+              <div className="meal-instruction">{mealDetail.strInstructions}</div>
+            </div>
+          );
+        } else {
+          return <Spinner />;
+        }
+      }
+    }
     
+
