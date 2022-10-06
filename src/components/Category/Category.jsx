@@ -10,6 +10,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from '@material-ui/core/Avatar';
 
 import MealContext from "../../context/MealContext";
+import { Eco } from '@material-ui/icons';
 
 const styles = theme => ({
     root: {
@@ -17,4 +18,23 @@ const styles = theme => ({
         maxWidth: 360,
         backgroundColor: theme.palette.background.paper,
     },
+    Checkbox: {
+        flexGrow: 1,
+        color: '#5D38DB',
+        '&$checked': {
+            color: '#5D38DB',
+        },
+    },
+    checked: {},
 });
+
+class Category extends Component{
+    isChecked=(categoryName, selectedCategoryName)=>{
+        if(categoryName === selectedCategoryName)
+        return "selected-category";
+    else
+        return "";
+}
+
+
+}
